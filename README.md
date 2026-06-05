@@ -16,6 +16,9 @@ I'm not a "junior who can code." I'm the person who points a fleet of AI tools a
 **[Portable AI coding environment](https://github.com/joshazmy/portable-ai-coding-env)** — a reproducible multi-machine setup that gives every machine the same fleet of AI coding tools from one config, controllable from my phone; tuned for ~5× fewer tools loaded per session.
 `MCP · Node · cross-platform`
 
+**[Project Nexus](https://github.com/joshazmy/project-nexus)** — a local web dashboard to launch and manage all my coding projects from one place (Node + Express, localhost-only with token auth).
+`Node.js · Express · auth`
+
 ---
 
 ### 🧰 Stack
