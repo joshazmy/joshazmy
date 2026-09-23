@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Joshua Azmy</title>
+<meta name="description" content="Linux tools, Chrome extensions, and open-source fixes. Diploma Spring 2027." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14120f;
+    --paper: #f4efe6;
+    --rust: #c45c32;
+    --line: rgb(20 18 15 / 0.14);
+    --mute: rgb(20 18 15 / 0.62);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body {
+    min-height: 100vh;
+    font-family: "Newsreader", Georgia, serif;
+    cursor: none;
+  }
+  body.touch, body.touch a { cursor: auto; }
+  a { color: inherit; text-decoration: none; }
+  .ring, .dot {
+    position: fixed; top: 0; left: 0; z-index: 40;
+    pointer-events: none; border-radius: 50%;
+    mix-blend-mode: multiply;
+  }
+  .ring {
+    width: 34px; height: 34px; margin: -17px 0 0 -17px;
+    border: 1px solid var(--rust);
+    transition: width .25s ease, height .25s ease, margin .25s ease, background .25s ease;
+  }
+  .dot {
+    width: 5px; height: 5px; margin: -2px 0 0 -2px;
+    background: var(--ink);
+  }
+  body.hot .ring {
+    width: 64px; height: 64px; margin: -32px 0 0 -32px;
+    background: rgb(196 92 50 / 0.12);
+  }
+  body.touch .ring, body.touch .dot { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .ring, .dot { display: none; }
+    body, body a { cursor: auto; }
+  }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 28px 7vw 0;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  header a { border-bottom: 1px solid var(--line); }
+  main { padding: 10vh 7vw 8vh; }
+  .lead {
+    max-width: 16ch;
+    margin: 0 0 18px;
+    font-size: clamp(3.4rem, 8vw, 7.4rem);
+    font-weight: 500; line-height: 0.9; letter-spacing: -0.03em;
+  }
+  .sub {
+    max-width: 36rem; margin: 0 0 8vh;
+    font-size: 1.25rem; line-height: 1.45; color: var(--mute);
+  }
+  ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  li a {
+    display: grid;
+    grid-template-columns: 4.5rem 1.4fr 1fr;
+    gap: 18px; align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .n, .kind {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute);
+  }
+  .name { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; }
+  li a:hover .name { color: var(--rust); }
+  .also {
+    margin-top: 6vh;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; line-height: 1.7; letter-spacing: 0.04em; color: var(--mute);
+    max-width: 46rem;
+  }
+  @media (max-width: 720px) {
+    li a { grid-template-columns: 3rem 1fr; }
+    .kind { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+  <div class="ring" id="ring"></div>
+  <div class="dot" id="dot"></div>
+  <header>
+    <span>Joshua Azmy</span>
+    <a href="https://github.com/joshazmy">GitHub</a>
+  </header>
+  <main>
+    <h1 class="lead">Linux tools. Open source fixes.</h1>
+    <p class="sub">Chrome extensions and merged pull requests. Diploma Spring 2027. Looking for a tooling or QA internship.</p>
+    <ol>
+      <li><a href="https://github.com/joshazmy/freeflow"><span class="n">01</span><span class="name">Freeflow</span><span class="kind">Local Linux dictation</span></a></li>
+      <li><a href="https://github.com/joshazmy/stockylift"><span class="n">02</span><span class="name">StockyLift</span><span class="kind">Chrome Web Store</span></a></li>
+      <li><a href="https://github.com/joshazmy/claude-usage-gauge"><span class="n">03</span><span class="name">Usage gauge</span><span class="kind">Firmware and simulator</span></a></li>
+      <li><a href="https://github.com/open-jarvis/OpenJarvis/pull/486"><span class="n">04</span><span class="name">OpenJarvis</span><span class="kind">Merged PR #486</span></a></li>
+      <li><a href="https://github.com/platformio/platformio-core/pull/5470"><span class="n">05</span><span class="name">PlatformIO</span><span class="kind">Merged PR #5470</span></a></li>
+    </ol>
+    <p class="also">Also built: a customized BrowserOS setup, a content pipeline, and a home lab on Linux that I set up and keep running.</p>
+  </main>
+<script>
+  const fine = window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fine) document.body.classList.add("touch");
+  const ring = document.getElementById("ring");
+  const dot = document.getElementById("dot");
+  let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y;
+  addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; });
+  document.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("pointerenter", () => document.body.classList.add("hot"));
+    a.addEventListener("pointerleave", () => document.body.classList.remove("hot"));
+  });
+  function frame() {
+    rx += (x - rx) * 0.18;
+    ry += (y - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    dot.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(frame);
+  }
+  if (fine) frame();
+</script>
+</body>
+</html>
