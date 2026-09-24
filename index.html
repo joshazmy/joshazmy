@@ -10,17 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --ink: #14120f;
-    --paper: #f4efe6;
-    --rust: #c45c32;
-    --line: rgb(20 18 15 / 0.14);
-    --mute: rgb(20 18 15 / 0.62);
+    --ink: #e8eef2;
+    --paper: #000;
+    --rust: rgb(170 210 220);
+    --line: rgb(170 210 220 / 0.28);
+    --mute: rgb(210 228 234 / 0.72);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--paper); color: var(--ink); }
   body {
     min-height: 100vh;
-    font-family: "Newsreader", Georgia, serif;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    letter-spacing: 0.04em;
     cursor: none;
   }
   body.touch, body.touch a { cursor: auto; }
@@ -28,7 +29,7 @@
   .ring, .dot {
     position: fixed; top: 0; left: 0; z-index: 40;
     pointer-events: none; border-radius: 50%;
-    mix-blend-mode: multiply;
+    mix-blend-mode: screen;
   }
   .ring {
     width: 34px; height: 34px; margin: -17px 0 0 -17px;
@@ -41,7 +42,8 @@
   }
   body.hot .ring {
     width: 64px; height: 64px; margin: -32px 0 0 -32px;
-    background: rgb(196 92 50 / 0.12);
+    background: rgb(80 210 220 / 0.14);
+    box-shadow: 0 0 24px rgb(40 180 200 / 0.35);
   }
   body.touch .ring, body.touch .dot { display: none; }
   @media (prefers-reduced-motion: reduce) {
@@ -60,7 +62,7 @@
     max-width: 16ch;
     margin: 0 0 18px;
     font-size: clamp(3.4rem, 8vw, 7.4rem);
-    font-weight: 500; line-height: 0.9; letter-spacing: -0.03em;
+    font-weight: 400; line-height: 1.05; letter-spacing: 0.06em; text-transform: uppercase;
   }
   .sub {
     max-width: 36rem; margin: 0 0 8vh;
@@ -106,8 +108,9 @@
       <li><a href="https://github.com/joshazmy/freeflow"><span class="n">01</span><span class="name">Freeflow</span><span class="kind">Local Linux dictation</span></a></li>
       <li><a href="https://github.com/joshazmy/stockylift"><span class="n">02</span><span class="name">StockyLift</span><span class="kind">Chrome Web Store</span></a></li>
       <li><a href="https://github.com/joshazmy/claude-usage-gauge"><span class="n">03</span><span class="name">Usage gauge</span><span class="kind">Firmware and simulator</span></a></li>
-      <li><a href="https://github.com/open-jarvis/OpenJarvis/pull/486"><span class="n">04</span><span class="name">OpenJarvis</span><span class="kind">Merged PR #486</span></a></li>
-      <li><a href="https://github.com/platformio/platformio-core/pull/5470"><span class="n">05</span><span class="name">PlatformIO</span><span class="kind">Merged PR #5470</span></a></li>
+      <li><a href="https://github.com/joshazmy/cider-ytm"><span class="n">04</span><span class="name">Limusic</span><span class="kind">Public · Yapel fork</span></a></li>
+      <li><a href="https://github.com/open-jarvis/OpenJarvis/pull/486"><span class="n">05</span><span class="name">OpenJarvis</span><span class="kind">Merged PR #486</span></a></li>
+      <li><a href="https://github.com/platformio/platformio-core/pull/5470"><span class="n">06</span><span class="name">PlatformIO</span><span class="kind">Merged PR #5470</span></a></li>
     </ol>
     <p class="also">Also built: a customized BrowserOS setup, a content pipeline, and a home lab on Linux that I set up and keep running.</p>
   </main>
